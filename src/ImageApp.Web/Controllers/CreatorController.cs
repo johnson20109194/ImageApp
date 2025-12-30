@@ -17,7 +17,7 @@ public class CreatorController(ICreatorService creator) : Controller
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Upload(CreatorUploadVm vm, CancellationToken ct)
     {
-        if (!ModelState.IsValid) return View(vm);
+        //if (!ModelState.IsValid) return View(vm);
 
         try
         {
