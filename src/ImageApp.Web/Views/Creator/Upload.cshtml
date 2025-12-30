@@ -1,0 +1,58 @@
+﻿@model CreatorUploadVm
+
+<h2>Upload Photo (Creator)</h2>
+
+<form method="post" enctype="multipart/form-data">
+    @Html.AntiForgeryToken()
+
+    <div>
+        <label>Title</label><br />
+        <input asp-for="Title" style="width:420px;" />
+        <span asp-validation-for="Title"></span>
+    </div>
+
+    <div style="margin-top:10px;">
+        <label>Caption</label><br />
+        <textarea asp-for="Caption" rows="3" style="width:420px;"></textarea>
+        <span asp-validation-for="Caption"></span>
+    </div>
+
+    <div style="margin-top:10px;">
+        <label>Location</label><br />
+        <input asp-for="Location" style="width:420px;" />
+        <span asp-validation-for="Location"></span>
+    </div>
+
+    <div style="margin-top:10px;">
+        <label>People present (comma separated)</label><br />
+        <input asp-for="PeoplePresent" style="width:420px;" />
+        <span asp-validation-for="PeoplePresent"></span>
+    </div>
+
+    <div style="margin-top:10px;">
+        <label>Tags (comma separated)</label><br />
+        <input asp-for="Tags" style="width:420px;" />
+        <span asp-validation-for="Tags"></span>
+    </div>
+
+    <div style="margin-top:10px;">
+        <label>Photo file (JPG/PNG/WEBP)</label><br />
+        <input asp-for="File" type="file" accept="image/jpeg,image/png,image/webp" />
+        <span asp-validation-for="File"></span>
+    </div>
+
+    <div style="margin-top:12px;">
+        <button type="submit">Upload</button>
+    </div>
+
+    @if (!ViewData.ModelState.IsValid)
+    {
+        <div style="margin-top:12px; color:#b00;">
+            @Html.ValidationSummary()
+        </div>
+    }
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

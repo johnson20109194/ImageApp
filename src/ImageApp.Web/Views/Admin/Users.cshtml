@@ -1,0 +1,45 @@
+﻿@model IReadOnlyList<ImageApp.Application.DTOs.Admin.UserSearchResult>
+
+<h2>Admin: Manage Users</h2>
+
+<form method="post">
+    @Html.AntiForgeryToken()
+    <input name="q" value="@((string)ViewBag.Query ?? "")" placeholder="Search email or display name..." style="width:420px;" />
+    <button type="submit">Search</button>
+</form>
+
+@if (Model.Count > 0)
+{
+    <table style="margin-top:12px; width:100%; border-collapse:collapse;">
+        <thead>
+        <tr>
+            <th style="text-align:left; border-bottom:1px solid #eee;">Email</th>
+            <th style="text-align:left; border-bottom:1px solid #eee;">Name</th>
+            <th style="text-align:left; border-bottom:1px solid #eee;">Role</th>
+            <th style="text-align:left; border-bottom:1px solid #eee;">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var u in Model)
+        {
+            <tr>
+                <td style="padding:8px 0;">@u.Email</td>
+                <td>@u.DisplayName</td>
+                <td>@u.Role</td>
+                <td>
+                    <form method="post" action="/Admin/SetRole" style="display:flex; gap:8px; align-items:center;">
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" name="userId" value="@u.Id" />
+                        <select name="role">
+                            <option value="Consumer" selected="@(u.Role.ToString()=="Consumer")">Consumer</option>
+                            <option value="Creator" selected="@(u.Role.ToString()=="Creator")">Creator</option>
+                            <option value="Admin" selected="@(u.Role.ToString()=="Admin")">Admin</option>
+                        </select>
+                        <button type="submit">Update</button>
+                    </form>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}

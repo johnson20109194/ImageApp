@@ -1,0 +1,70 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 18
+VisualStudioVersion = 18.1.11312.151 d18.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ImageApp.Application", "ImageApp.Application", "{F5A87DB3-F698-453E-95B8-318D38B3D0C2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageApp.Application", "src\ImageApp.Application\ImageApp.Application.csproj", "{104A949C-D982-4D56-8989-0949FBADFB6B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ImageApp.Infrastructure", "ImageApp.Infrastructure", "{6B598C92-CAFE-45FF-9693-931F3997626F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageApp.Infrastructure", "src\ImageApp.Infrastructure\ImageApp.Infrastructure.csproj", "{E018ACF9-65DB-4117-B2F6-9F85D3BBF1A0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ImageApp.Domain", "ImageApp.Domain", "{876C06C8-AA0F-4E5E-91AF-0D6C3DC25E15}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageApp.Domain", "src\ImageApp.Domain\ImageApp.Domain.csproj", "{56A4AA09-38F5-4FF2-A8C8-506DEC5A587C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docker", "docker", "{2CC785AA-8480-4284-9569-52FA0F91E36B}"
+	ProjectSection(SolutionItems) = preProject
+		docker\docker-compose.yml = docker\docker-compose.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "pipelines", "pipelines", "{256246A4-B6BD-4290-AE74-6DD1E257C9D0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ImageApp.Web", "ImageApp.Web", "{18A36880-9314-40ED-B6CA-743D822FCD1B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageApp.Web", "src\ImageApp.Web\ImageApp.Web.csproj", "{2087E7E9-864B-44A7-95DD-CD374141718C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{104A949C-D982-4D56-8989-0949FBADFB6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{104A949C-D982-4D56-8989-0949FBADFB6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{104A949C-D982-4D56-8989-0949FBADFB6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{104A949C-D982-4D56-8989-0949FBADFB6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E018ACF9-65DB-4117-B2F6-9F85D3BBF1A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E018ACF9-65DB-4117-B2F6-9F85D3BBF1A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E018ACF9-65DB-4117-B2F6-9F85D3BBF1A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E018ACF9-65DB-4117-B2F6-9F85D3BBF1A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56A4AA09-38F5-4FF2-A8C8-506DEC5A587C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56A4AA09-38F5-4FF2-A8C8-506DEC5A587C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56A4AA09-38F5-4FF2-A8C8-506DEC5A587C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56A4AA09-38F5-4FF2-A8C8-506DEC5A587C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2087E7E9-864B-44A7-95DD-CD374141718C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2087E7E9-864B-44A7-95DD-CD374141718C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2087E7E9-864B-44A7-95DD-CD374141718C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2087E7E9-864B-44A7-95DD-CD374141718C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F5A87DB3-F698-453E-95B8-318D38B3D0C2} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{104A949C-D982-4D56-8989-0949FBADFB6B} = {F5A87DB3-F698-453E-95B8-318D38B3D0C2}
+		{6B598C92-CAFE-45FF-9693-931F3997626F} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{E018ACF9-65DB-4117-B2F6-9F85D3BBF1A0} = {6B598C92-CAFE-45FF-9693-931F3997626F}
+		{876C06C8-AA0F-4E5E-91AF-0D6C3DC25E15} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{56A4AA09-38F5-4FF2-A8C8-506DEC5A587C} = {876C06C8-AA0F-4E5E-91AF-0D6C3DC25E15}
+		{18A36880-9314-40ED-B6CA-743D822FCD1B} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{2087E7E9-864B-44A7-95DD-CD374141718C} = {18A36880-9314-40ED-B6CA-743D822FCD1B}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E0602321-3AFB-4AED-B75A-A95FE934990F}
+	EndGlobalSection
+EndGlobal

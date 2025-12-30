@@ -1,0 +1,64 @@
+﻿@model dynamic
+
+@{
+    // Model is expected to have: Page, PageSize, TotalPages, HasPrevious, HasNext
+    var page = (int)Model.Page;
+    var pageSize = (int)Model.PageSize;
+    var totalPages = (int)Model.TotalPages;
+
+    // Preserve query string (q, filters, etc.)
+    var routeValues = new Dictionary<string, string?>();
+    foreach (var kv in Context.Request.Query)
+        routeValues[kv.Key] = kv.Value.ToString();
+
+    string UrlFor(int targetPage)
+    {
+        routeValues["page"] = targetPage.ToString();
+        routeValues["pageSize"] = pageSize.ToString();
+        return "?" + string.Join("&", routeValues.Select(kv => $"{kv.Key}={Uri.EscapeDataString(kv.Value ?? "")}"));
+    }
+
+    // windowed pager
+    var start = Math.Max(1, page - 2);
+    var end = Math.Min(totalPages, page + 2);
+}
+
+@if (totalPages > 1)
+{
+    <nav aria-label="Pagination" class="mt-4">
+        <ul class="pagination">
+            <li class="page-item @(Model.HasPrevious ? "" : "disabled")">
+                <a class="page-link" href="@(Model.HasPrevious ? UrlFor(page - 1) : "#")">Previous</a>
+            </li>
+
+            @if (start > 1)
+            {
+                <li class="page-item"><a class="page-link" href="@UrlFor(1)">1</a></li>
+                @if (start > 2)
+                {
+                    <li class="page-item disabled"><span class="page-link">…</span></li>
+                }
+            }
+
+            @for (var i = start; i <= end; i++)
+            {
+                <li class="page-item @(i == page ? "active" : "")">
+                    <a class="page-link" href="@UrlFor(i)">@i</a>
+                </li>
+            }
+
+            @if (end < totalPages)
+            {
+                @if (end < totalPages - 1)
+                {
+                    <li class="page-item disabled"><span class="page-link">…</span></li>
+                }
+                <li class="page-item"><a class="page-link" href="@UrlFor(totalPages)">@totalPages</a></li>
+            }
+
+            <li class="page-item @(Model.HasNext ? "" : "disabled")">
+                <a class="page-link" href="@(Model.HasNext ? UrlFor(page + 1) : "#")">Next</a>
+            </li>
+        </ul>
+    </nav>
+}
